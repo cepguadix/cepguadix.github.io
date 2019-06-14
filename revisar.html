@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<title>Revisar</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" type="text/css" href="revisar.css" media="screen" />
+
+<script>
+$(function () {
+$("#fecha").datepicker();
+});
+</script>
+
+<script>
+ $.datepicker.regional['es'] = {
+ closeText: 'Cerrar',
+ prevText: '< Ant',
+ nextText: 'Sig >',
+ currentText: 'Hoy',
+ monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+ monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+ dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+ dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+ dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+ weekHeader: 'Sm',
+ dateFormat: 'dd/mm/yy',
+ firstDay: 1,
+ isRTL: false,
+ showMonthAfterYear: false,
+ yearSuffix: ''
+ };
+ $.datepicker.setDefaults($.datepicker.regional['es']);
+$(function () {
+$("#fecha").datepicker();
+});
+</script>
+
+<script>
+Date.prototype.getWeek = function() {
+  
+    var onejan = new Date(this.getFullYear(),0,1);
+    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+} 
+
+function mostrarTabla() {
+
+    var url = "http://www.duckduckgo.com/?q=";
+    
+    url += "asesoria=";
+    url += document.getElementById("asesoria").value;
+    url += "&semana=";
+    url += document.getElementById("fecha").value;
+    
+    //window.open(url);
+    var Fecha = document.getElementById("fecha").value;
+
+    var Anno = Fecha.substr(6,4);
+    var Mes = Fecha.substr(3,2);
+    var Dia = Fecha.substr(0,2);
+    
+    var MiFecha = new Date(Anno, Mes-1, Dia);
+    var MiNumeroSemana = MiFecha.getWeek();
+    alert("Semana: " + MiNumeroSemana);
+}
+</script>
+
+<style type="text/css">
+  .centrado-porcentual {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="centrado-porcentual">
+
+    Asesoría: 
+    <select id="asesoria" name="asesoria">
+       <option value="ACT">ACT</option> 
+       <option value="AL">AL</option> 
+       <option value="INF">INF</option>
+       <option value="PR1">PR1</option> 
+       <option value="PR2">PR2</option> 
+    </select>
+    
+    <label for="fecha">Fecha:
+        <input type="text" id="fecha" value="" />
+    </label>
+    
+    <input type="button" id="Revisar" onclick="mostrarTabla()" value="Revisar">
+    
+</div>
+
+</body>
+
+</html>

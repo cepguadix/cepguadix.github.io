@@ -29,10 +29,9 @@ function mostrarTabla() {
     url += "asesoria=";
     url += document.getElementById("asesoria").value;
     url += "&semana=";
-    url += document.getElementById("fecha").value;
+    //url += document.getElementById("fecharevision").value;
     
-    //window.open(url);
-    var Fecha = document.getElementById("fecha").value;
+    var Fecha = document.getElementById("fecharevision").value;
 
     var Anno = Fecha.substr(6,4);
     var Mes = Fecha.substr(3,2);
@@ -42,6 +41,9 @@ function mostrarTabla() {
     var MiNumeroSemana = MiFecha.getWeek();
     alert("Asesoria: " + document.getElementById("asesoria").value);
     alert("Semana: " + MiNumeroSemana);
+  
+    url += MiNumeroSemana;
+    //window.open(url);
   
 }
 </script>

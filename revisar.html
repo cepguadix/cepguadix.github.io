@@ -23,28 +23,22 @@ Date.prototype.getWeek = function() {
 } 
 function mostrarTabla(f) {
 	
-	alert(f);
-    var url = "http://www.duckduckgo.com/?q=";
-    
-    url += "asesoria=";
-    url += document.getElementById("asesoria").value;
-    url += "&semana=";
-    //url += document.getElementById("fecharevision").value;
-    
+    var url = "https://script.google.com/macros/s/AKfycbxNiV71qoCRYYwPE7vdBiX2eoDjpgZRfBMUjjUV83hUorN8IV_Y/exec";
+         
     var Anno = f.substr(0,4);
-    alert(Anno);
     var Mes = f.substr(5,2);
-    alert(Mes);
     var Dia = f.substr(8,2);
-    alert(Dia);
     
     var MiFecha = new Date(Anno, Mes-1, Dia);
     var MiNumeroSemana = MiFecha.getWeek();
     alert("Asesoria: " + document.getElementById("asesoria").value);
     alert("Semana: " + MiNumeroSemana);
-    
-    url += MiNumeroSemana;
-    //window.open(url);
+	
+	url += "?asesoria=";
+    	url += document.getElementById("asesoria").value;
+    	url += "&semana=";
+	url += MiNumeroSemana;
+	window.open(url);
   
 }
 </script>

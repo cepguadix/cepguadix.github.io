@@ -4,9 +4,6 @@
 
 <meta charset="utf-8" />
 <title>Revisar</title>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
 <style type="text/css">
   .centrado-porcentual {
@@ -17,30 +14,6 @@
     -webkit-transform: translate(-50%, -50%);
 }
 </style>
-
-<script>
- $.datepicker.regional['es'] = {
- closeText: 'Cerrar',
- prevText: '< Ant',
- nextText: 'Sig >',
- currentText: 'Hoy',
- monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
- monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
- dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
- dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
- dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
- weekHeader: 'Sm',
- dateFormat: 'dd/mm/yy',
- firstDay: 1,
- isRTL: false,
- showMonthAfterYear: false,
- yearSuffix: ''
- };
- $.datepicker.setDefaults($.datepicker.regional['es']);
-$(function () {
-$("#fecha").datepicker();
-});
-</script>
 
 <script>
 Date.prototype.getWeek = function() {
@@ -69,6 +42,21 @@ function mostrarTabla() {
     var MiNumeroSemana = MiFecha.getWeek();
     alert("Asesoria: " + document.getElementById("asesoria").value);
     alert("Semana: " + MiNumeroSemana);
+  
+}
+</script>
+
+<script>
+  window.onload = function(){
+  var fecha = new Date(); //Fecha actual
+  var mes = fecha.getMonth()+1; //obteniendo mes
+  var dia = fecha.getDate(); //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año
+  if(dia<10)
+    dia='0'+dia; //agrega cero si el menor de 10
+  if(mes<10)
+    mes='0'+mes //agrega cero si el menor de 10
+  document.getElementById('fecharevision').value=ano+"-"+mes+"-"+dia;
 }
 </script>
 
@@ -90,7 +78,7 @@ function mostrarTabla() {
     </select>
     
     <label for="fecha">Fecha:
-        <input type="text" id="fecha" value="" />
+        <input type="date" id="fecharevision" value="" >
     </label>
     
     <input type="button" id="Revisar" onclick="mostrarTabla()" value="Revisar">

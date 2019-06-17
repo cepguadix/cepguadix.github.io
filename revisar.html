@@ -6,16 +6,22 @@
 <title>Revisar</title>
 
 <style type="text/css">
-  .centrado-porcentual {
+    .centrado-porcentual {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     }
-  p {
-  font-size: x-small;
-  }
+    .centrado-porcentual-hor {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    }
+    p {
+    font-size: x-small;
+    }
 }
 </style>
 
@@ -89,7 +95,7 @@ function mostrarTabla(f) {
     <p>Indica un día cualquiera de la semana que se quiere revisar</p>
     
     </br></br>
-    <input type="button" id="Revisar" onclick="mostrarTabla(document.getElementById('fecharevision').value)" value="Revisar">
+    <input class="centrado-porcentual-hor" type="button" id="Revisar" onclick="mostrarTabla(document.getElementById('fecharevision').value)" value="Revisar">
     
 </div>
 

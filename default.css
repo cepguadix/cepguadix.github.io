@@ -70,7 +70,7 @@ a:hover {
 /* Header Style */
 .codrops-top {
 	background: #fff;
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(128,128,128,0.3);
 	text-transform: uppercase;
 	position: relative;
 	width: 100%;
@@ -86,7 +86,7 @@ a:hover {
 }
 
 .codrops-top a:hover {
-	background: rgba(255,255,255,0.9);
+	color: rgba(16,16,16,0.9);
 }
 
 .codrops-top span.right {
@@ -133,4 +133,3 @@ a:hover {
 		font-size: 75%;
 	}
 }
-

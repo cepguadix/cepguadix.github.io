@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>Revisar tabla</title>
+<title>Revisar</title>
 
 <style type="text/css">
     .centrado-porcentual {
@@ -27,11 +27,12 @@
 
 <script>
 Date.prototype.getWeek = function() {
+  
     var onejan = new Date(this.getFullYear(),0,1);
     return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
 } 
-
 function mostrarTabla(f) {
+	
     var url = "https://script.google.com/macros/s/AKfycbxNiV71qoCRYYwPE7vdBiX2eoDjpgZRfBMUjjUV83hUorN8IV_Y/exec";
          
     var Anno = f.substr(0,4);
@@ -44,8 +45,8 @@ function mostrarTabla(f) {
     //alert("Semana: " + MiNumeroSemana);
 	
 	url += "?asesoria=";
-    url += document.getElementById("asesoria").value;
-    url += "&semana=";
+    	url += document.getElementById("asesoria").value;
+    	url += "&semana=";
 	url += MiNumeroSemana;
 	window.open(url);
   
@@ -66,8 +67,9 @@ function mostrarTabla(f) {
 }
 </script>
 
-</head>
 
+
+</head>
 
 <body>
 

@@ -19,6 +19,10 @@
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     }
+    p {
+    color: white;
+    text-align: center;
+    }
     p.peque {
     font-size: x-small;
     }
@@ -28,7 +32,9 @@
     }
     h3 {
     color: white;
+    background-color: #2e7aac;
     text-align: center;
+    padding: 10px;
     }
 }
 </style>
@@ -84,7 +90,7 @@ function mostrarTabla(f) {
 	<h3>Revisar tabla semanal</h3>
 	</br>
 
-    <p style="color:white">Asesoría: 
+    <p>Asesoría: 
     <select id="asesoria" name="asesoria">
        <option value="ACT">ACT</option> 
        <option value="AL">AL</option> 
@@ -94,11 +100,11 @@ function mostrarTabla(f) {
     </select>
     </p>
     
-    <p style="color:white">
+    <p>
     <label for="fecharevision">Fecha:
         <input type="date" id="fecharevision" value="" >
     </label>
-</p>   
+    </p>   
     <p class="peque" style="color:white">Indica un día cualquiera de la semana que se quiere revisar</p>
     
     </br></br>

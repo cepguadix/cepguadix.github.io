@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>Revisar</title>
+<title>Revisar tabla</title>
 
 <style type="text/css">
     .centrado-porcentual {
@@ -20,19 +20,31 @@
     -webkit-transform: translate(-50%, -50%);
     }
     p {
+    color: white;
+    text-align: center;
+    }
+    p.peque {
     font-size: x-small;
+    }
+    div {
+    background-color: #166ba2;
+    padding: 25px;
+    }
+    h3 {
+    color: white;
+    background-color: #2e7aac;
+    text-align: center;
     }
 }
 </style>
 
 <script>
 Date.prototype.getWeek = function() {
-  
     var onejan = new Date(this.getFullYear(),0,1);
     return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
 } 
+
 function mostrarTabla(f) {
-	
     var url = "https://script.google.com/macros/s/AKfycbxNiV71qoCRYYwPE7vdBiX2eoDjpgZRfBMUjjUV83hUorN8IV_Y/exec";
          
     var Anno = f.substr(0,4);
@@ -45,8 +57,8 @@ function mostrarTabla(f) {
     //alert("Semana: " + MiNumeroSemana);
 	
 	url += "?asesoria=";
-    	url += document.getElementById("asesoria").value;
-    	url += "&semana=";
+    url += document.getElementById("asesoria").value;
+    url += "&semana=";
 	url += MiNumeroSemana;
 	window.open(url);
   
@@ -67,18 +79,17 @@ function mostrarTabla(f) {
 }
 </script>
 
-
-
 </head>
+
 
 <body>
 
 <div class="centrado-porcentual">
 	
-	<h3>Revisión tabla semanal</h3>
+	<h3>Revisar tabla semanal</h3>
 	</br>
 
-    Asesoría: 
+    <p>Asesoría: 
     <select id="asesoria" name="asesoria">
        <option value="ACT">ACT</option> 
        <option value="AL">AL</option> 
@@ -86,13 +97,14 @@ function mostrarTabla(f) {
        <option value="PR1">PR1</option> 
        <option value="PR2">PR2</option> 
     </select>
+    </p>
     
-	</br></br>
-	
+    <p>
     <label for="fecharevision">Fecha:
         <input type="date" id="fecharevision" value="" >
     </label>
-    <p>Indica un día cualquiera de la semana que se quiere revisar</p>
+    </p>   
+    <p class="peque" style="color:white">Indica un día cualquiera de la semana que se quiere revisar</p>
     
     </br></br>
     <input class="centrado-porcentual-hor" type="button" id="Revisar" onclick="mostrarTabla(document.getElementById('fecharevision').value)" value="Revisar">

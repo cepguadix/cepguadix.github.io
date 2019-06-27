@@ -50,7 +50,7 @@ a:hover {
 	text-align: center;
 	font-size: 16px;
 	padding: 4em 2em 3em;
-	background: rgba(135,160,160,0.1);
+	background: rgba(135,160,160,0.2);
 }
 
 .container > header h1 {
